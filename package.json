@@ -1,0 +1,12 @@
+{
+  "name": "colors-of-pi",
+  "main": "app.js",
+  "dependencies": {
+    "lodash":   "latest",
+    "jpeg-js":  "latest",
+    "request":  "latest",
+    "q":        "latest",
+    "rgb-hex":  "latest",
+    "fs":       "latest"  
+  }
+}
