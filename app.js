@@ -13,7 +13,7 @@ var rgbHex		= require('rgb-hex');
 var fs 			= require('fs');
 
 var dimension = 50;
-var start_digit = 1;
+var start_digit = 150000;
 
 var pi_data;
 var rgb_values;
@@ -56,8 +56,10 @@ getPiDigits(dimension, start_digit)
 		  	height: dimension
 		};
 
-		var jpegImageData = jpeg.encode(rawImageData, dimension);
+		var jpegImageData = jpeg.encode(rawImageData, 50);
 		console.log(jpegImageData);
+
+		fs.writeFileSync('pi.jpeg', jpegImageData.data);
 
 	}) 
 	.catch(function (err0r) {
