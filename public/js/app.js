@@ -1,5 +1,5 @@
 // public/js/app.js
-angular.module('complimentCalendar', 
+angular.module('colorsOfPi', 
 	['ngRoute'])
 
 .config ( function ( $routeProvider, $locationProvider) {
