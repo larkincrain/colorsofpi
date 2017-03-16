@@ -22,12 +22,22 @@ angular.module('colorsOfPi',
 
 })
 
-.controller('MainController', function($scope, $window, $location) {
+.controller('MainController', function($scope, $window, $location, $http) {
 
     $scope.email = '';
     $scope.password = '';
     $scope.startDigit = 1;
+    $scope.image = "";
 
-    
+    $scope.getImage = function() {
+        $http({
+            url: '/api/image/' + $scope.startDigit,
+            method: 'GET'
+        })
+        .then(function (data) {
+            console.log(data);
+            $scope.image = data.data;
+        });
+    }
 
 });
