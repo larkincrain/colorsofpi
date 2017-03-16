@@ -21,7 +21,7 @@ module.exports = function(app) {
 
         // we'll want to send back the bas64 URL encoded representation of this image that we create
         var dimension = 50;
-        var start_digit = 45546000;
+        var start_digit = req.params.startPosition || 67;
 
         var pi_data;
         var rgb_values;
@@ -63,8 +63,10 @@ module.exports = function(app) {
 
                 console.log('writing the file to the disk');
 
+                var timeStamp = new Date().getTime();
+
                 // save the image to the disk
-                fs.writeFileSync('pi.jpeg', jpegImageData.data);
+                fs.writeFileSync('pi_' + timeStamp + '.jpeg', jpegImageData.data);
 
                 console.log('done');
 
