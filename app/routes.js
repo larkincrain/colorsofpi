@@ -1,8 +1,6 @@
  // app/routes.js
 
 // grab the nerd model we just created
-var User        = require('./models/user');
-var Comment     = require('./models/comment');
 var fs          = require('fs');
 var bcrypt      = require('bcrypt-nodejs');
 var jwt         = require('jsonwebtoken');

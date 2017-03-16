@@ -48,10 +48,10 @@ app.use(express.static(__dirname + '/public'));
 //app.use(serveStatic('public/ftp', {'index': ['index.html']}))
 
 // Connect to the hosted mongo DB instance
-mongoose.connect( db.url, function (error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-});
+// mongoose.connect( db.url, function (error) {
+//     if (error) console.error(error);
+//     else console.log('mongo connected');
+// });
 
 
 // routes ==================================================

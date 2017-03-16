@@ -2,11 +2,18 @@
   "name": "colors-of-pi",
   "main": "app.js",
   "dependencies": {
-    "lodash":   "latest",
-    "jpeg-js":  "latest",
-    "request":  "latest",
-    "q":        "latest",
-    "rgb-hex":  "latest",
-    "fs":       "latest"  
+    "lodash":         "latest",
+    "jpeg-js":        "latest",
+    "request":        "latest",
+    "q":              "latest",
+    "rgb-hex":        "latest",
+    "fs":             "latest",
+    "bcrypt-nodejs":  "latest",
+    "jsonwebtoken":   "latest",
+    "express":        "latest",
+    "body-parser":    "latest",
+    "method-override":"latest",
+    "serve-static":   "latest",
+    "mongoose":       "latest"  
   }
 }
