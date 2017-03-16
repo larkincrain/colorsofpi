@@ -24,7 +24,7 @@ var serveStatic	   = require('serve-static');
 var mongoose 	   = require('mongoose');
 
 // set our port
-var port = process.env.PORT || 8080; 
+var port = process.env.PORT || 8100; 
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
