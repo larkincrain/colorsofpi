@@ -1,9 +1,17 @@
  // app/routes.js
 
-// grab the nerd model we just created
-var fs          = require('fs');
+// for web server stuff
 var bcrypt      = require('bcrypt-nodejs');
 var jwt         = require('jsonwebtoken');
+
+// for making the image
+var _           = require('lodash');
+var jpeg        = require('jpeg-js'); 
+var request     = require('request');
+var q           = require('q');
+var rgbHex      = require('rgb-hex');
+var fs          = require('fs');
+
 
 module.exports = function(app) {
 
@@ -26,13 +34,9 @@ module.exports = function(app) {
 
                 // cool, got the digits from pi
                 pi_data = data;
-                console.log('Pi data: ');
-                console.log(pi_data);
 
                 // but we still need to process them into RGB values
                 rgb_values = parseRGB(pi_data);
-
-                console.log(frameData.length);
 
                 // console.log('rgb values');
                 // console.log(rgb_values);
@@ -45,7 +49,6 @@ module.exports = function(app) {
                     frameData[(count * 4) + 3] = 0xFF;                          // alpha - ignored in JPEGs
 
                     count ++;
-                    console.log(count);
                 }
 
                 console.log('cool, lets make an image');
@@ -57,13 +60,20 @@ module.exports = function(app) {
                 };
 
                 var jpegImageData = jpeg.encode(rawImageData, 50);
-                console.log(jpegImageData);
+
+                console.log('writing the file to the disk');
 
                 // save the image to the disk
                 fs.writeFileSync('pi.jpeg', jpegImageData.data);
 
+                console.log('done');
+
                 //return the base64 URL encoded string
-                var imageData = 'data:image/png;base64,' + jpegImageData.data.toString('base64');
+                var imageData = 'data:image/jpg;base64,' + jpegImageData.data.toString('base64');
+
+                console.log('got string representation of the image: ');
+                console.log(imageData);
+
                 return res.json(imageData);
 
             }) 

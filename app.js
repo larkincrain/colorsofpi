@@ -5,14 +5,6 @@
 	Date: Pi Day, 2017
 */
 
-// for making the image
-var _ 			= require('lodash');
-var jpeg 		= require('jpeg-js'); 
-var request  	= require('request');
-var q			= require('q');
-var rgbHex		= require('rgb-hex');
-var fs 			= require('fs');
-
 // For setting up the server
 var express        = require('express');
 var app            = express();
