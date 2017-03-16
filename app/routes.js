@@ -38,20 +38,16 @@ module.exports = function(app) {
                 // but we still need to process them into RGB values
                 rgb_values = parseRGB(pi_data);
 
-                // console.log('rgb values');
-                // console.log(rgb_values);
                 //now we need to convert these values into hex or something
                 var count = 0;
                 while (count < rgb_values) {
-                    frameData[(count * 4)] = rgb_values[count][0].toString(16);     // red
+                    frameData[(count * 4)] = rgb_values[count][0].toString(16);         // red
                     frameData[(count * 4) + 1] = rgb_values[count][1].toString(16);     // green
                     frameData[(count * 4) + 2] = rgb_values[count][2].toString(16);     // blue
-                    frameData[(count * 4) + 3] = 0xFF;                          // alpha - ignored in JPEGs
+                    frameData[(count * 4) + 3] = 0xFF;                                  // alpha - ignored in JPEGs
 
                     count ++;
                 }
-
-                console.log('cool, lets make an image');
 
                 var rawImageData = {
                     data: frameData,
@@ -60,21 +56,13 @@ module.exports = function(app) {
                 };
 
                 var jpegImageData = jpeg.encode(rawImageData, 50);
-
-                console.log('writing the file to the disk');
-
                 var timeStamp = new Date().getTime();
 
                 // save the image to the disk
                 fs.writeFileSync('pi_' + timeStamp + '.jpeg', jpegImageData.data);
 
-                console.log('done');
-
                 //return the base64 URL encoded string
                 var imageData = 'data:image/jpg;base64,' + jpegImageData.data.toString('base64');
-
-                console.log('got string representation of the image: ');
-                console.log(imageData);
 
                 return res.json(imageData);
 
