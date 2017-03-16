@@ -1,0 +1,32 @@
+<!-- public/views/home.html -->
+
+<div class="grid">
+	<div class="row">
+		<div class="col col-7-of-12 center">
+			<div class="text-center">
+			    <h1>Colors of Pi</h1>
+			</div>
+		</div>
+	</div>
+
+	<!-- Text to enter the starting position -->
+	<div class="row">
+		<div class="col col-7-of-12 center">
+			<input ng-model="startDigit">
+		</div>
+	</div>
+
+	<!-- Submit button -->
+	<div class="row">
+		<div class="col col-7-of-12 center">
+			<div class="btn btn-primary" ng-click="getImage();">See Pi</div>
+		</div>
+	</div>
+
+	<!-- Image -->
+	<div class="row">
+		<div class="col col-7-of-12 center">
+			<img ng-src="{{image}}">
+		</div>
+	</div>
+</div>

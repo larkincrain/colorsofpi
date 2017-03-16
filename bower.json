@@ -1,0 +1,15 @@
+{
+  "name": "colors-of-pi",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "jquery": "1.11.1"
+  },
+  "resolutions": {
+    "angular": "1.6.1"
+  }
+}
