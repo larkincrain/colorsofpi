@@ -66,7 +66,7 @@ module.exports = function(app) {
                 var hexData = [];
 
                 for(var count = 0; count < rgb_values.length; count ++) {
-                    hexData[count] = rgbToHex(rgb_values[count]);
+                    hexData[count] = rgb_values[count]; //rgbToHex(rgb_values[count]);
                 }
 
                 return res.json({
