@@ -63,8 +63,17 @@ module.exports = function(app) {
 
                 //return the base64 URL encoded string
                 var imageData = 'data:image/jpg;base64,' + jpegImageData.data.toString('base64');
+                var hexData = [];
 
-                return res.json(imageData);
+                for(var count = 0; count < rgb_values.length; count ++) {
+                    hexData[count] = rgb_values[count]; //rgbToHex(rgb_values[count]);
+                }
+
+                return res.json({
+                    imageData: imageData,
+                    hexData: hexData,
+                    dimension: dimension
+                    });
 
             }) 
             .catch(function (error) {
@@ -144,10 +153,33 @@ module.exports = function(app) {
 
                 triplet = [red, green, blue];
                 triplets[ count ] = triplet;
-            
             }
 
             return triplets;
+        }
+
+        function rgbToHex(rgbValue) {
+
+            var hex = "";
+
+            hex = toHex(rgbValue[0])
+                + toHex(rgbValue[1])
+                + toHex(rgbValue[2]);
+
+            return hex;
+        }
+
+        function toHex(value) {
+
+            value = parseInt(value,10);
+
+            if (isNaN(value)) 
+                return "00";
+
+            value = Math.max(0,Math.min(value,255));
+
+            return "0123456789ABCDEF".charAt((value - value % 16) / 16)
+              + "0123456789ABCDEF".charAt(value % 16);
         }
 
     });

@@ -29,4 +29,17 @@
 			<img ng-src="{{image}}">
 		</div>
 	</div>
+
+	<div class="row" style="z-index: -1; widows: 100%; height: 100%; position: relative;">
+		<div class="col col-12-of-12 center">
+			<table>
+				<tbody>
+					<tr ng-repeat="row in hexTable">
+						<td ng-repeat="color in row" style="background-color: {{color}}; width: 30px; height: 25px;">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
