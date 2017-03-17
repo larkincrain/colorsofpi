@@ -106,6 +106,9 @@ module.exports = function(app) {
                         digits += result.value;
                     });
 
+                    //remove unwanted digits from the start of the first page
+                    digits = digits.substring(start_digit % 1000, digits.length);
+
                     deferred.resolve(digits);
                 });
 
